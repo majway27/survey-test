@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# survey-test
+Work out simple poll/survey/vote mechanism.  Multi-tenant, "single vote", only collect aggregated stats.
+>>>>>>> 3a638ee66f71e6e23748cac721c7e01b79b5aef3
