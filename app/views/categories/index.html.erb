@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Version</th>
+      <th>Surveyname</th>
+      <th>Question 1 key</th>
+      <th>Question 1 text</th>
+      <th>Question 2 key</th>
+      <th>Question 2 text</th>
+      <th>Question 3 key</th>
+      <th>Question 3 text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= category.version %></td>
+        <td><%= category.surveyname %></td>
+        <td><%= category.question_1_key %></td>
+        <td><%= category.question_1_text %></td>
+        <td><%= category.question_2_key %></td>
+        <td><%= category.question_2_text %></td>
+        <td><%= category.question_3_key %></td>
+        <td><%= category.question_3_text %></td>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category', new_category_path %>

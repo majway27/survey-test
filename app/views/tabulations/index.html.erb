@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tabulations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Count</th>
+      <th>Survey</th>
+      <th>Question</th>
+      <th>Option</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tabulations.each do |tabulation| %>
+      <tr>
+        <td><%= tabulation.count %></td>
+        <td><%= tabulation.survey.name %></td>
+        <td><%= tabulation.question.text %></td>
+        <td><%= tabulation.option.text %></td>
+        <td><%= link_to 'Show', tabulation %></td>
+        <td><%= link_to 'Edit', edit_tabulation_path(tabulation) %></td>
+        <td><%= link_to 'Destroy', tabulation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tabulation', new_tabulation_path %>

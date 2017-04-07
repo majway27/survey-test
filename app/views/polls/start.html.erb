@@ -1,0 +1,56 @@
+<h1>Polls#start</h1>
+
+<%= form_tag("/polls/vote", method: "post") do %>
+  <%= fields_for :question1 do |q1| %>
+    <%= q1.text_field 'survey_id', value: 1 %>
+    <%= q1.text_field 'question_id', value: 1 %><br/>
+    <%= q1.radio_button 'option_id', '1' %>First<br/>
+    <%= q1.radio_button 'option_id', '2' %>Second<br/>
+    <%= q1.radio_button 'option_id', '3' %>Third<br/>
+  <% end %>
+  <hr>
+  <%= fields_for :question2 do |q2| %>
+    <%= q2.text_field 'survey_id', value: 1 %>
+    <%= q2.text_field 'question_id', value: 2 %><br/>
+    <%= q2.radio_button 'option_id', '1' %>First<br/>
+    <%= q2.radio_button 'option_id', '2' %>Second<br/>
+    <%= q2.radio_button 'option_id', '3' %>Third<br/>
+  <% end %>
+  <hr>
+  <%= fields_for :question3 do |q3| %>
+    <%= q3.text_field 'survey_id', value: 1 %>
+    <%= q3.text_field 'question_id', value: 3 %><br/>
+    <%= q3.radio_button 'option_id', '1' %>First<br/>
+    <%= q3.radio_button 'option_id', '2' %>Second<br/>
+    <%= q3.radio_button 'option_id', '3' %>Third<br/>
+  <% end %>
+  <%= submit_tag("Vote") %>
+<% end %>
+
+<h1>Tabulations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Count</th>
+      <th>Survey</th>
+      <th>Question</th>
+      <th>Option</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tabulations.each do |tabulation| %>
+      <tr>
+        <td><%= tabulation.count %></td>
+        <td><%= tabulation.survey.name %></td>
+        <td><%= tabulation.question.text %></td>
+        <td><%= tabulation.option.text %></td>
+        <td><%= link_to 'Show', tabulation %></td>
+        <td><%= link_to 'Edit', edit_tabulation_path(tabulation) %></td>
+        <td><%= link_to 'Destroy', tabulation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

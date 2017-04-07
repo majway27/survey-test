@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @category.version %>
+</p>
+
+<p>
+  <strong>Surveyname:</strong>
+  <%= @category.surveyname %>
+</p>
+
+<p>
+  <strong>Question 1 key:</strong>
+  <%= @category.question_1_key %>
+</p>
+
+<p>
+  <strong>Question 1 text:</strong>
+  <%= @category.question_1_text %>
+</p>
+
+<p>
+  <strong>Question 2 key:</strong>
+  <%= @category.question_2_key %>
+</p>
+
+<p>
+  <strong>Question 2 text:</strong>
+  <%= @category.question_2_text %>
+</p>
+
+<p>
+  <strong>Question 3 key:</strong>
+  <%= @category.question_3_key %>
+</p>
+
+<p>
+  <strong>Question 3 text:</strong>
+  <%= @category.question_3_text %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

@@ -1,0 +1,62 @@
+<%= form_for(category) do |f| %>
+  <% if category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :version %>
+    <%= f.number_field :version %>
+  </div>
+
+  <div class="field">
+    <%= f.label :surveyname %>
+    <%= f.text_field :surveyname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :question_1_key %>
+    <%= f.number_field :question_1_key %>
+  </div>
+
+  <div class="field">
+    <%= f.label :question_1_text %>
+    <%= f.text_field :question_1_text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :question_2_key %>
+    <%= f.number_field :question_2_key %>
+  </div>
+
+  <div class="field">
+    <%= f.label :question_2_text %>
+    <%= f.text_field :question_2_text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :question_3_key %>
+    <%= f.number_field :question_3_key %>
+  </div>
+
+  <div class="field">
+    <%= f.label :question_3_text %>
+    <%= f.text_field :question_3_text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

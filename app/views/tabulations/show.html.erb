@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @tabulation.count %>
+</p>
+
+<p>
+  <strong>Survey:</strong>
+  <%= @tabulation.survey %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @tabulation.question %>
+</p>
+
+<p>
+  <strong>Option:</strong>
+  <%= @tabulation.option %>
+</p>
+
+<%= link_to 'Edit', edit_tabulation_path(@tabulation) %> |
+<%= link_to 'Back', tabulations_path %>
