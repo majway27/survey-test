@@ -1,7 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Survey.create(name: "1test")
+
+@survey = Survey.first
+
+@survey.questions.create(text: "S1Q1")
+@survey.questions.first.options.create(text: "S1Q1C1") 
+@survey.questions.first.options.create(text: "S1Q1C2") 
+@survey.questions.first.options.create(text: "S1Q1C3")
+
+@survey.questions.create(text: "S1Q2")
+@survey.questions.second.options.create(text: "S1Q2C1")
+@survey.questions.second.options.create(text: "S1Q2C2")
+@survey.questions.second.options.create(text: "S1Q2C3")
+
+@survey.questions.create(text: "S1Q3")
+@survey.questions.third.options.create(text: "S1Q3C1")
+@survey.questions.third.options.create(text: "S1Q3C2")
+@survey.questions.third.options.create(text: "S1Q3C3")
+
+# Option.all.select(:id, :text).each {|e| puts e.inspect }
+

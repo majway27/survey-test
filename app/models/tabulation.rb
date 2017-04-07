@@ -9,16 +9,18 @@ class Tabulation < ApplicationRecord
       # Locate particular survey by id
       @survey = Survey.find(survey_id)
       # Build tab rows, 9 total
-      @survey.questions.each do |q|
-        @survey.questions.find(q).choices.each do |c|
-          puts "test"
+      @survey.questions.ids.each do |q|
+        #puts "Question ID: #{q}"
+        @survey.questions.find(q).options.ids.each do |c|
+          #puts "Option ID: #{c}"
+          Tabulation.create!(
+          survey_id: @survey.id,
+          question_id: @survey.questions.find(q).id, 
+          option_id: @survey.questions.find(q).options.find(c).id,
+          count: 0)
         end
-      end
-      3.times do
-        #logger.info "test: #{n += 1}"
-        
-      end
-    end
-  end
+      end # End Outer Loop
+    end # End IF
+  end # End Method Def
   
 end

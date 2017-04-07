@@ -19,7 +19,8 @@ class TabulationsController < ApplicationController
   
   def generate
     Tabulation.generate_tabs(params[:id])
-    return 200
+    #render :nothing => true, :status => 200, :content_type => 'text/html'
+    redirect_back
   end
 
   # GET /tabulations/1/edit
