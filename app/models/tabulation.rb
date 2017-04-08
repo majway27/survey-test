@@ -5,7 +5,6 @@ class Tabulation < ApplicationRecord
   
   def self.generate_tabs(survey_id)
     if Tabulation.where(survey_id: survey_id).count < 1
-      n=0
       # Locate particular survey by id
       @survey = Survey.find(survey_id)
       # Build tab rows, 9 total

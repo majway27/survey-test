@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'polls/start'
+  get 'polls/start/:id', to: 'polls#start'
 
   get 'polls/result'
   post 'polls/vote'

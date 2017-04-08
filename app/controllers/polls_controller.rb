@@ -1,6 +1,8 @@
 class PollsController < ApplicationController
   def start
-    @tabulations = Tabulation.all
+    @tabulations = Tabulation.where(survey_id: params[:id])
+    @survey = Survey.find(params[:id])
+    
   end
 
   def vote
@@ -21,7 +23,7 @@ class PollsController < ApplicationController
       end
     end
     # Write Participant record
-    redirect_to polls_start_path
+    redirect_back
   end
 
   def result

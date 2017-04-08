@@ -1,31 +1,24 @@
 <h1>Polls#start</h1>
 
-<%= form_tag("/polls/vote", method: "post") do %>
-  <%= fields_for :question1 do |q1| %>
-    <%= q1.text_field 'survey_id', value: 1 %>
-    <%= q1.text_field 'question_id', value: 1 %><br/>
-    <%= q1.radio_button 'option_id', '1' %>First<br/>
-    <%= q1.radio_button 'option_id', '2' %>Second<br/>
-    <%= q1.radio_button 'option_id', '3' %>Third<br/>
+<div class="jumbotron">
+  <%= form_tag("/polls/vote", method: "post") do %>
+    <% @survey.questions.ids.each do |q| %>
+      <% questionkey = "question#{q}" %>
+      <% q_item = "q_item#{q}" %>
+      <%= "Question: #{@survey.questions.find(q).text}" %>
+      <%= fields_for questionkey do |q_item| %>
+        <%= q_item.hidden_field 'survey_id', value: @survey.id %>
+        <%= q_item.hidden_field 'question_id', value: q %><br/>
+        <% @survey.questions.find(q).options.ids.each do |c| %>
+          <%= q_item.radio_button 'option_id', c %>
+          <%= "Choice: #{@survey.questions.find(q).options.find(c).text }" %>
+          <br/>
+        <% end %>
+      <% end %><hr>
+    <% end %>
+    <%= submit_tag("Vote") %>
   <% end %>
-  <hr>
-  <%= fields_for :question2 do |q2| %>
-    <%= q2.text_field 'survey_id', value: 1 %>
-    <%= q2.text_field 'question_id', value: 2 %><br/>
-    <%= q2.radio_button 'option_id', '1' %>First<br/>
-    <%= q2.radio_button 'option_id', '2' %>Second<br/>
-    <%= q2.radio_button 'option_id', '3' %>Third<br/>
-  <% end %>
-  <hr>
-  <%= fields_for :question3 do |q3| %>
-    <%= q3.text_field 'survey_id', value: 1 %>
-    <%= q3.text_field 'question_id', value: 3 %><br/>
-    <%= q3.radio_button 'option_id', '1' %>First<br/>
-    <%= q3.radio_button 'option_id', '2' %>Second<br/>
-    <%= q3.radio_button 'option_id', '3' %>Third<br/>
-  <% end %>
-  <%= submit_tag("Vote") %>
-<% end %>
+</div>
 
 <h1>Tabulations</h1>
 
